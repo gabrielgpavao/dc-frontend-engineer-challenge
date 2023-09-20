@@ -1,3 +1,79 @@
 {
-  "extends": "next/core-web-vitals"
+    "env": {
+        "browser": true,
+        "es2021": true
+    },
+    "extends": [
+		"next",
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+	"settings": {
+		"react": {
+			"version": "detect"
+		}
+	},
+    "overrides": [
+    ],
+	"parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": "latest",
+        "sourceType": "module",
+		"project": "./tsconfig.json"
+    },
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "indent": [
+            "error",
+            "tab"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "never"
+        ],
+		"no-console": 1,
+		"react/react-in-jsx-scope": "off",
+		"react/jsx-props-no-spreading": "off",
+		"object-curly-newline": "off",
+		"import/prefer-default-export": "off",
+		"arrow-parens": "off",
+		"import/no-extraneous-dependencies": "off",
+		"react/button-has-type": "off",
+		"react/require-default-props": "off",
+		"implicit-arrow-linebreak": "off",
+		"react/jsx-wrap-multilines": "off",
+		"react/jsx-one-expression-per-line": "off",
+		"operator-linebreak": "off",
+		"jsx-a11y/media-has-caption": "off",
+		"jsx-a11y/label-has-associated-control": "off",
+		"no-script-url": "off",
+		"react/function-component-definition": "off",
+		"jsx-a11y/click-events-have-key-events": "off",
+		"jsx-a11y/no-noninteractive-element-interactions": "off",
+		"jsx-a11y/no-noninteractive-tabindex": "off",
+		"no-undef": "off",
+		"eol-last": ["error", "always"],
+		"comma-dangle": [
+			"error",
+			"never"
+		],
+		"no-trailing-spaces": "error",
+		"comma-spacing": [
+			"error",
+			{
+				"before": false,
+				"after": true
+			}
+		],
+		"no-multi-spaces": "error",
+		"react-hooks/exhaustive-deps": "off"
+    }
 }
