@@ -4,7 +4,7 @@ import { menuIcon } from '@/assets/icons'
 
 export default function Header() {
 	return (
-		<header className='bg-primary w-full flex items-center justify-between p-4 rounded-b-md sm:rounded-none relative'>
+		<header className='bg-primary w-full max-h-20 flex items-center justify-between p-4 rounded-b-md sm:rounded-none relative'>
 			<div className='flex items-center'>
 				<Image src={dcLogo} alt='Logo da Delta Code' width={50} height={50}/>
 				<h1 className='text-white text-left text-base tracking-wide font-medium ml-4 sm:ml-8'>Tela Inicial</h1>
