@@ -1,3 +1,4 @@
+import calendarNextIcon from '@/assets/icons/calendar-next.svg'
 import calendarIcon from '@/assets/icons/calendar.svg'
 import chatIcon from '@/assets/icons/chat.svg'
 import creditArrowIcon from '@/assets/icons/credit-arrow.svg'
@@ -7,6 +8,7 @@ import menuIcon from '@/assets/icons/menu.svg'
 import speakerIcon from '@/assets/icons/speaker.svg'
 
 export {
+	calendarNextIcon,
 	calendarIcon,
 	chatIcon,
 	creditArrowIcon,
