@@ -1,3 +1,5 @@
+import BulletPoint from './BulletPoint'
+
 export default function CalendarLabel() {
 	return (
 		<section className='text-sm text-neutral-dark font-normal'>
@@ -12,23 +14,23 @@ export default function CalendarLabel() {
 				<li className='flex gap-4 items-center'>
 					<div className='flex flex-col items-center gap-[0.375rem] w-11'>
 						<small className='leading-[initial]'>11</small>
-						<span className='block w-[0.375rem] h-[0.375rem] bg-primary rounded-full'/>
+						<BulletPoint transactionType='credit'/>
 					</div>
 					<p>Data com previsão de entradas</p>
 				</li>
 				<li className='flex gap-4 items-center'>
 					<div className='flex flex-col items-center gap-[0.375rem] w-11'>
 						<small className='leading-[initial]'>19</small>
-						<span className='block w-[0.375rem] h-[0.375rem] bg-secondary-dark rounded-full'/>
+						<BulletPoint transactionType='debit'/>
 					</div>
 					<p>Data com previsão de saídas</p>
 				</li>
 				<li className='flex gap-4 items-center'>
-					<div className='flex flex-col items-center w-11'>
+					<div className='flex flex-col items-center w-11 gap-[0.375rem]'>
 						<small className='leading-[initial] block'>10</small>
-						<div className='leading-[initial] h-3'>
-							<span className='inline-block w-[0.375rem] h-[0.375rem] mr-1 bg-primary rounded-full'/>
-							<span className='inline-block w-[0.375rem] h-[0.375rem] bg-secondary-dark rounded-full'/>
+						<div className='flex gap-[0.375rem]'>
+							<BulletPoint transactionType='credit'/>
+							<BulletPoint transactionType='debit'/>
 						</div>
 					</div>
 					<p>Data com previsão de entradas e saídas</p>
