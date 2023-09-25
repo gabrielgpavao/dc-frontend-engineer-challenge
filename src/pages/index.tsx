@@ -1,4 +1,4 @@
-import { Header, Navbar, Profile, Transaction } from '@/components/'
+import { CalendarLabel, Header, Navbar, Profile, Transaction } from '@/components/'
 import { TransactionType, iTransaction } from '@/interfaces'
 
 export default function Home() {
@@ -29,6 +29,7 @@ export default function Home() {
 					<Profile name='Gabriel Galvão Pavão' avatarURL='https://i.imgur.com/2TBmfPW.jpg' company='Delta Code Ltda'/>
 					<div>
 						<Transaction date={transactionDate} transactions={transactions}/>
+						<CalendarLabel/>
 					</div>
 				</main>
 				<Navbar/>
