@@ -1,11 +1,8 @@
-export enum TransactionType {
-	DEBIT= 'DEBIT',
-	CREDIT= 'CREDIT'
-}
+export type tTransactionType = 'credit' | 'debit'
 
 export interface iTransaction {
 	id: string
-	type: TransactionType
+	type: tTransactionType
 	title: string
 	category: string
 	value: number

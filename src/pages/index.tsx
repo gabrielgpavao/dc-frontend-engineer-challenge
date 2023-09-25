@@ -1,19 +1,19 @@
 import { CalendarLabel, Header, Navbar, Profile, Transaction } from '@/components/'
-import { TransactionType, iTransaction } from '@/interfaces'
+import { iTransaction } from '@/interfaces'
 
 export default function Home() {
 	const transactions: iTransaction[] = [
 		{
 			id: '1234',
 			title: 'Pré-Labore',
-			type: TransactionType.CREDIT,
+			type: 'credit',
 			category: 'Salário',
 			value: 3997.99
 		},
 		{
 			id: '12345',
 			title: 'Imposto de Renda',
-			type: TransactionType.DEBIT,
+			type: 'debit',
 			category: 'Imposto',
 			value: 1005.47
 		}
