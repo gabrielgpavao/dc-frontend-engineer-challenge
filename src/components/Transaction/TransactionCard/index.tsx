@@ -1,10 +1,10 @@
 import { creditArrowIcon, debitArrowIcon } from '@/assets/icons'
 import Image from 'next/image'
-import { iTransaction } from '@/interfaces'
+import { tTransaction } from '@/interfaces'
 import formatPrice from '@/utils/formatPrice'
 
 interface iTransactionListProps {
-	transaction: iTransaction
+	transaction: tTransaction
 }
 
 export default function TransactionCard({ transaction }: iTransactionListProps) {

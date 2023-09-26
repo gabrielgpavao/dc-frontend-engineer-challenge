@@ -2,11 +2,11 @@ import Image from 'next/image'
 import { calendarNextIcon } from '@/assets/icons'
 import formatDate from '@/utils/formatDate'
 import TransactionCard from './TransactionCard'
-import { iTransaction } from '@/interfaces'
+import { tTransaction } from '@/interfaces'
 
 interface iTransactionProps {
 	date: Date,
-	transactions: iTransaction[]
+	transactions: tTransaction[]
 }
 
 export default function Transaction({ date, transactions }: iTransactionProps) {
