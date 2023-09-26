@@ -25,12 +25,15 @@ export default function Home() {
 		<>
 			<Header/>
 			<div className='md:flex md:flex-row-reverse md:justify-end'>
-				<main className='container px-4'>
+				<main className='container px-4 relative'>
 					<Profile name='Gabriel Galvão Pavão' avatarURL='https://i.imgur.com/2TBmfPW.jpg' company='Delta Code Ltda'/>
 					<div>
 						<Transaction date={transactionDate} transactions={transactions}/>
 						<CalendarLabel/>
 					</div>
+					<footer className='hidden absolute bottom-3 md:block'>
+						<p className='text-sm font-medium text-neutral-dark'>Desenvolvido por <strong className='font-bold'>Delta Code LTDA®</strong> 2023</p>
+					</footer>
 				</main>
 				<Navbar/>
 			</div>
