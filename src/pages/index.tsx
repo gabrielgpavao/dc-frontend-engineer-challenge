@@ -1,4 +1,4 @@
-import { CalendarLabel, Header, Navbar, Profile, Transaction } from '@/components/'
+import { Calendar, CalendarLabel, Header, Navbar, Profile, Transaction } from '@/components/'
 import { transactions } from '@/mocks/transactions'
 
 export default function Home() {
@@ -16,8 +16,9 @@ export default function Home() {
 			<div className='md:flex md:flex-row-reverse md:justify-end'>
 				<main className='container px-4 relative'>
 					<Profile name='Gabriel Galvão Pavão' avatarURL='https://i.imgur.com/2TBmfPW.jpg' company='Delta Code Ltda'/>
-					<div>
-						<Transaction date={transactionDate} transactions={transactionsInTheDate}/>
+					<div className='md:flex'>
+						<Calendar/>
+						{/* <Transaction date={transactionDate} transactions={transactionsInTheDate}/> */}
 						<CalendarLabel/>
 					</div>
 					<footer className='hidden absolute bottom-3 md:block'>

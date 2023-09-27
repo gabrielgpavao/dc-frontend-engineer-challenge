@@ -11,7 +11,7 @@ export default function Profile({ name, avatarURL, company }: iProfileProps) {
 	const greeting = greetings()
 
 	return (
-		<section className='mt-6'>
+		<section className='mt-6 mb-10'>
 			<h3 className='text-sm text-black font-medium'>{greeting}, {name.split(' ')[0]}!</h3>
 			<div className='flex items-center mt-4 gap-4'>
 				<figure className='h-11 w-11 grid place-items-center'>

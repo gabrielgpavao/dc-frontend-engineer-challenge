@@ -1,8 +1,8 @@
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import { calendarIcon, documentIcon, speakerIcon, chatIcon } from '@/assets/icons'
 
 export default function Navbar() {
-	function NavItem ({ imageSrc, title }: { imageSrc: any, title: string }) {
+	function NavItem ({ imageSrc, title }: { imageSrc: StaticImageData, title: string }) {
 		return (
 			<li className='flex flex-col items-center cursor-pointer'>
 				<figure className='w-6 h-6'>

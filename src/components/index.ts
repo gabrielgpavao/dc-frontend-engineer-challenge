@@ -4,6 +4,9 @@ import Profile from './Profile'
 import Transaction from './Transaction'
 import CalendarLabel from './CalendarLabel'
 import BulletPoint from './BulletPoint'
+import Calendar from './Calendar'
+import Select from './Select'
+import DatePicker from './DatePicker'
 
 export {
 	Header,
@@ -11,5 +14,8 @@ export {
 	Profile,
 	Transaction,
 	CalendarLabel,
-	BulletPoint
+	BulletPoint,
+	Calendar,
+	Select,
+	DatePicker
 }
