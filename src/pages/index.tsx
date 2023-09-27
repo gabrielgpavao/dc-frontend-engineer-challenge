@@ -1,8 +1,10 @@
 import { Calendar, CalendarLabel, Header, Navbar, Profile, Transaction } from '@/components/'
-import { UserProvider } from '@/contexts/UserContext'
+import useUser from '@/hooks/useUser'
 import { transactions } from '@/mocks/transactions'
 
 export default function Home() {
+	const { customer } = useUser()
+
 	const transactionDate = new Date('2023-09-20T10:53:35.753Z')
 	const transactionsInTheDate = transactions.filter(({ createdAt }) => {
 		const transactionDay = String(createdAt.getDate()).padStart(2, '0')
@@ -12,11 +14,11 @@ export default function Home() {
 	})
 
 	return (
-		<UserProvider>
+		<>
 			<Header/>
 			<div className='md:flex md:flex-row-reverse md:justify-end'>
 				<main className='container px-4 relative'>
-					<Profile name='Gabriel Galvão Pavão' avatarURL='https://i.imgur.com/2TBmfPW.jpg' company='Delta Code Ltda'/>
+					<Profile name={customer.firstName + customer.lastName} avatarURL={customer.avatarURL} company={customer.company}/>
 					<div className='md:flex'>
 						<Calendar/>
 						{/* <Transaction date={transactionDate} transactions={transactionsInTheDate}/> */}
@@ -28,6 +30,6 @@ export default function Home() {
 				</main>
 				<Navbar/>
 			</div>
-		</UserProvider>
+		</>
 	)
 }

@@ -1,3 +1,4 @@
+import { UserProvider } from '@/contexts/UserContext'
 import '@/styles/globals.css'
 import type { AppProps } from 'next/app'
 import Circular from 'next/font/local'
@@ -35,8 +36,10 @@ const circular = Circular({
 
 export default function App({ Component, pageProps }: AppProps) {
 	return (
-		<div className={circular.className}>
-			<Component {...pageProps} />
-		</div>
+		<UserProvider>
+			<div className={circular.className}>
+				<Component {...pageProps} />
+			</div>
+		</UserProvider>
 	)
 }
