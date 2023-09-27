@@ -3,7 +3,7 @@ import BulletPoint from './BulletPoint'
 export default function CalendarLabel() {
 	return (
 		<section className='text-sm text-neutral-dark font-normal'>
-			<h3 className='font-medium'>Legenda</h3>
+			<h3 className='font-medium mb-4'>Legenda</h3>
 			<ul className=' flex flex-col gap-2'>
 				<li className='flex gap-4 items-center'>
 					<div className='bg-primary h-7 w-7 mx-2 grid place-items-center rounded-full'>

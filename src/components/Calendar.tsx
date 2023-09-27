@@ -36,7 +36,7 @@ export default function Calendar() {
 	})
 
 	return (
-		<section className='max-w-[24.25rem] mb-6'>
+		<section className='max-w-[24.25rem] mb-6 pb-5 border-b-2 border-[#F1F1F1] md:border-b-0 md:border-r-2 md:h-[42.75rem] md:pb-0 md:pr-16 md:mr-16'>
 			<ul className='flex items-center gap-4 h-6 mb-5'>
 				<FilterOption filterName='Hoje'/>
 				<FilterOption filterName='Esta semana'/>

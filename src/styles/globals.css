@@ -7,7 +7,7 @@
 	.navbarMd {
 		background-color: #007D66;
 		padding: 1.5rem;
-		height: 100vh;
+		max-height: 62.5rem;
 		width: 80px;
 	}
 
