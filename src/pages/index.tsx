@@ -1,4 +1,5 @@
 import { Calendar, CalendarLabel, Header, Navbar, Profile, Transaction } from '@/components/'
+import { UserProvider } from '@/contexts/UserContext'
 import { transactions } from '@/mocks/transactions'
 
 export default function Home() {
@@ -11,7 +12,7 @@ export default function Home() {
 	})
 
 	return (
-		<>
+		<UserProvider>
 			<Header/>
 			<div className='md:flex md:flex-row-reverse md:justify-end'>
 				<main className='container px-4 relative'>
@@ -27,6 +28,6 @@ export default function Home() {
 				</main>
 				<Navbar/>
 			</div>
-		</>
+		</UserProvider>
 	)
 }
