@@ -1,7 +1,9 @@
-import { tUser } from '@/interfaces'
+import { tTransaction, tUser } from '@/interfaces'
 import { Dispatch, SetStateAction } from 'react'
 
 export interface iUserProviderValue {
-	customer: tUser,
-	setCustomer: Dispatch<SetStateAction<tUser>>
+	user: tUser,
+	setUser: Dispatch<SetStateAction<tUser>>,
+	transactions: tTransaction[],
+	setTransactions: Dispatch<SetStateAction<tTransaction[]>>
 }

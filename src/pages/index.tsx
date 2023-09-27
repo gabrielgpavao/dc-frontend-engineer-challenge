@@ -1,9 +1,8 @@
 import { Calendar, CalendarLabel, Header, Navbar, Profile, Transaction } from '@/components/'
 import useUser from '@/hooks/useUser'
-import { transactions } from '@/mocks/transactions'
 
 export default function Home() {
-	const { customer } = useUser()
+	const { user, transactions } = useUser()
 
 	const transactionDate = new Date('2023-09-20T10:53:35.753Z')
 	const transactionsInTheDate = transactions.filter(({ createdAt }) => {
@@ -18,7 +17,7 @@ export default function Home() {
 			<Header/>
 			<div className='md:flex md:flex-row-reverse md:justify-end'>
 				<main className='container px-4 relative'>
-					<Profile name={customer.firstName + customer.lastName} avatarURL={customer.avatarURL} company={customer.company}/>
+					<Profile name={`${user.firstName} ${user.lastName}`} avatarURL={user.avatarURL} company={user.company}/>
 					<div className='md:flex'>
 						<Calendar/>
 						{/* <Transaction date={transactionDate} transactions={transactionsInTheDate}/> */}

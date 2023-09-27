@@ -16,7 +16,7 @@ import {
 } from 'date-fns'
 import BulletPoint from './BulletPoint'
 import { tTransaction } from '@/interfaces'
-import { transactions } from '@/mocks/transactions'
+import useUser from '@/hooks/useUser'
 
 interface iTransactionIndicatorProps {
 	transactions: tTransaction[],
@@ -27,6 +27,7 @@ export default function DatePicker() {
 	const today = startOfToday()
 	const [selectedDay, setSelectedDay] = useState(today)
 	const [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
+	const { transactions } = useUser()
 
 	const firstDayOfCurrentMonth = startOfMonth(
 		parse(currentMonth, 'MMM-yyyy', new Date())

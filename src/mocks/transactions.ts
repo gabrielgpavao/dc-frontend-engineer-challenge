@@ -1,7 +1,7 @@
 import { tTransaction } from '@/interfaces'
 import { v4 as uuidv4 } from 'uuid'
 
-export const transactions: tTransaction[] = [
+export const transactionsMock: tTransaction[] = [
 	{
 		id: uuidv4(),
 		title: 'Imposto de Renda',

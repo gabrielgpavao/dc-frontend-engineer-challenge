@@ -1,18 +1,22 @@
 import { ReactNode, createContext, useState } from 'react'
 import { iUserProviderValue } from './interfaces'
-import { user } from '@/mocks/user'
+import { userMock } from '@/mocks/user'
 import { tUser } from '@/interfaces'
+import { transactionsMock } from '@/mocks/transactions'
 
 export const UserContext = createContext({} as iUserProviderValue)
 
 export function UserProvider({ children }: { children: ReactNode }) {
-	const [customer, setCustomer] = useState<tUser>(user)
+	const [user, setUser] = useState<tUser>(userMock)
+	const [transactions, setTransactions] = useState(transactionsMock)
 
 	return (
 		<UserContext.Provider
 			value={{
-				customer,
-				setCustomer
+				user,
+				setUser,
+				transactions,
+				setTransactions
 			}}
 		>
 			{children}
