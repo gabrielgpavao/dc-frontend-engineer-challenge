@@ -1,5 +1,6 @@
 import { calendarSelectIcon } from '@/assets/icons'
 import Select from './Select'
+import DatePicker from './DatePicker'
 
 interface iFilterOptionProps {
 	filterName: string
@@ -35,7 +36,7 @@ export default function Calendar() {
 	})
 
 	return (
-		<section className='max-w-sm'>
+		<section className='max-w-[24.25rem] mb-6'>
 			<ul className='flex items-center gap-4 h-6 mb-5'>
 				<FilterOption filterName='Hoje'/>
 				<FilterOption filterName='Esta semana'/>
@@ -55,6 +56,8 @@ export default function Calendar() {
 					<Select icon={calendarSelectIcon} name='year' options={yearSelectOptions}/>
 				</fieldset>
 			</div>
+
+			<DatePicker/>
 		</section>
 	)
 }

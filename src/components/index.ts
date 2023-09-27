@@ -6,6 +6,7 @@ import CalendarLabel from './CalendarLabel'
 import BulletPoint from './BulletPoint'
 import Calendar from './Calendar'
 import Select from './Select'
+import DatePicker from './DatePicker'
 
 export {
 	Header,
@@ -15,5 +16,6 @@ export {
 	CalendarLabel,
 	BulletPoint,
 	Calendar,
-	Select
+	Select,
+	DatePicker
 }
