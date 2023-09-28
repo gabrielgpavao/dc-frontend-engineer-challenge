@@ -2,7 +2,7 @@ import { calendarSelectIcon } from '@/assets/icons'
 import Select from './Select'
 import DatePicker from './DatePicker'
 import useUser from '@/hooks/useUser'
-import { getYear } from 'date-fns'
+import { format, getYear } from 'date-fns'
 import getMonthsOfTheYear from '@/utils/getMonthsOfTheYear'
 
 interface iFilterOptionProps {
@@ -48,7 +48,7 @@ export default function Calendar() {
 				<fieldset className='w-[11.5rem]'>
 					<label htmlFor='month' className='text-sm text-neutral-dark block'>Mês</label>
 
-					<Select onChange={(event) => {setCurrentMonth(event.target.value)}} icon={calendarSelectIcon} name='month' options={monthSelectOptions}/>
+					<Select onChange={(event) => {setCurrentMonth(event.target.value)}} icon={calendarSelectIcon} name='month' defaultValue={format(todaysDate, 'M')} options={monthSelectOptions}/>
 				</fieldset>
 
 				<fieldset className='w-[11.5rem]'>
