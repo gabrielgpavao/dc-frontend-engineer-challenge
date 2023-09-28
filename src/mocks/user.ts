@@ -1,7 +1,7 @@
 import { tUser } from '@/interfaces'
 import { v4 as uuidv4 } from 'uuid'
 
-export const user: tUser = {
+export const userMock: tUser = {
 	id: uuidv4(),
 	firstName: 'Gabriel',
 	lastName: 'Pavão',

@@ -1,7 +1,5 @@
-import { useState } from 'react'
 import cx from 'classnames'
 import {
-	add,
 	eachDayOfInterval,
 	endOfMonth,
 	endOfWeek,
@@ -11,12 +9,12 @@ import {
 	isSameDay,
 	parse,
 	startOfMonth,
-	startOfToday,
 	startOfWeek
 } from 'date-fns'
 import BulletPoint from './BulletPoint'
 import { tTransaction } from '@/interfaces'
-import { transactions } from '@/mocks/transactions'
+import useUser from '@/hooks/useUser'
+import useCloseOnOutClick from '@/hooks/useCloseOnOutClick'
 
 interface iTransactionIndicatorProps {
 	transactions: tTransaction[],
@@ -24,12 +22,23 @@ interface iTransactionIndicatorProps {
 }
 
 export default function DatePicker() {
-	const today = startOfToday()
-	const [selectedDay, setSelectedDay] = useState(today)
-	const [currentMonth, setCurrentMonth] = useState(format(today, 'MMM-yyyy'))
+	const {
+		transactions,
+		todaysDate,
+		selectedDate,
+		selectDate,
+		isDateSelected,
+		setIsDateSelected,
+		currentMonth,
+		currentYear
+	} = useUser()
 
 	const firstDayOfCurrentMonth = startOfMonth(
-		parse(currentMonth, 'MMM-yyyy', new Date())
+		parse(
+			currentMonth,
+			'M',
+			new Date(+currentYear, +currentMonth - 1, 1)
+		)
 	)
 
 	const days = eachDayOfInterval({
@@ -38,16 +47,6 @@ export default function DatePicker() {
 	}).map((date) => ({
 		date
 	}))
-
-	function next() {
-		const firstDayOfNextMonth = add(firstDayOfCurrentMonth, { months: 1 })
-		setCurrentMonth(format(firstDayOfNextMonth, 'MMM-yyyy'))
-	}
-
-	function previous() {
-		const firstDayOfNextMonth = add(firstDayOfCurrentMonth, { months: -1 })
-		setCurrentMonth(format(firstDayOfNextMonth, 'MMM-yyyy'))
-	}
 
 	const colStartClasses = [
 		'',
@@ -85,6 +84,8 @@ export default function DatePicker() {
 		)
 	}
 
+	const datePickerRef = useCloseOnOutClick<HTMLDivElement>(() => { setIsDateSelected(false) })
+
 	return (
 		<div className='w-full'>
 			<ul className='grid grid-cols-7 mb-5 text-sm font-medium text-center text-black place-items-center'>
@@ -95,7 +96,7 @@ export default function DatePicker() {
 				))}
 			</ul>
 
-			<div className={`grid grid-cols-7 text-sm ${days.length > 7*5 ? 'h-72' : 'h-60'}`}>
+			<div ref={datePickerRef} className={`grid grid-cols-7 text-sm ${days.length > 7*5 ? 'h-72' : 'h-60'}`}>
 				{days.map((day, index) => (
 					<div
 						key={index}
@@ -106,8 +107,8 @@ export default function DatePicker() {
 					>
 						<button
 							type='button'
-							onClick={() => setSelectedDay(day.date)}
-							className={`text-neutral-dark h-[1.875rem] w-[1.875rem] flex  flex-col items-center hover:font-semibold ${isEqual(day.date, today) && 'relative before:absolute before:-z-10 before:bottom-[0.3125rem] before:bg-primary before:min-h-[1.875rem] before:w-[1.875rem] before:rounded-full text-white font-medium'} ${(isEqual(day.date, selectedDay) && !isEqual(day.date, today)) && 'border border-primary rounded-lg'}`}
+							onClick={() => selectDate(day.date)}
+							className={`text-neutral-dark h-[1.875rem] w-[1.875rem] flex  flex-col items-center hover:font-semibold ${isEqual(day.date, todaysDate) && 'relative before:absolute before:-z-10 before:bottom-[0.3125rem] before:bg-primary before:min-h-[1.875rem] before:w-[1.875rem] before:rounded-full text-white font-medium'} ${(isEqual(day.date, selectedDate) && (!isEqual(day.date, todaysDate)) && isDateSelected) && 'border border-primary rounded-lg'}`}
 						>
 							{format(day.date, 'd')}
 
