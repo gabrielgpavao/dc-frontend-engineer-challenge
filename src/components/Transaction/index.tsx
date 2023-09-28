@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import { calendarNextIcon } from '@/assets/icons'
-import formatDate from '@/utils/formatDate'
 import TransactionCard from './TransactionCard'
 import { tTransaction } from '@/interfaces'
+import { format } from 'date-fns'
 
 interface iTransactionProps {
 	date: Date,
@@ -10,7 +10,7 @@ interface iTransactionProps {
 }
 
 export default function Transaction({ date, transactions }: iTransactionProps) {
-	const transactionDate = formatDate(date)
+	const transactionDate = format(date, 'dd/MM/yyyy')
 
 	return (
 		<section className='mb-5'>

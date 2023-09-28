@@ -1,4 +1,5 @@
 import Image, { StaticImageData } from 'next/image'
+import { ChangeEventHandler } from 'react'
 
 interface iSelectProps {
 	icon: StaticImageData
@@ -6,15 +7,16 @@ interface iSelectProps {
 	options: {
 		value: string | number
 		label: string
-	}[]
+	}[],
+	onChange?: ChangeEventHandler<HTMLSelectElement>
 }
 
-export default function Select({ icon, name, options }: iSelectProps) {
+export default function Select({ icon, name, options, onChange }: iSelectProps) {
 	return (
 		<fieldset className='flex relative w-full'>
 			<Image src={icon} alt='Ícone do campo de seleção' className='absolute top-3 left-[0.625rem]'/>
 
-			<select name={name} id={name} className='border border-[#9C9EA059] text-sm font-bold outline-none text-black rounded-[0.1875rem] appearance-none w-full h-10 pl-10'>
+			<select onChange={onChange} name={name} id={name} className='border border-[#9C9EA059] text-sm font-bold capitalize outline-none text-black rounded-[0.1875rem] appearance-none w-full h-10 pl-10'>
 				{
 					options.map(({ value, label }) => <option key={value} value={value}>{label}</option>)
 				}
