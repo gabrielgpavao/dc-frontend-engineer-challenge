@@ -22,13 +22,23 @@ export default function Transaction({ date, transactions }: iTransactionProps) {
 				<span className='font-medium text-xs text-neutral-dark bg-[#9C9EA01F] px-2 py-1 rounded-full'>{transactions.length}</span>
 			</div>
 
-			<ul className='flex flex-col gap-4'>
-				{
-					transactions.map((transaction) => (
-						<TransactionCard key={transaction.id} transaction={transaction}/>
-					))
-				}
-			</ul>
+			{
+				transactions.length
+					? (
+						<ul className='flex flex-col gap-4'>
+							{
+								transactions.map((transaction) => (
+									<TransactionCard key={transaction.id} transaction={transaction}/>
+								))
+							}
+						</ul>
+					)
+					: (
+						<p className='text-sm text-neutral-dark'>
+							Sem movimentações na data selecionada
+						</p>
+					)
+			}
 		</section>
 	)
 }
