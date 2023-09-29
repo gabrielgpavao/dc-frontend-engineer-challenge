@@ -9,8 +9,8 @@ interface iTransactionListProps {
 }
 
 const ArrowIcon = {
-	credit: () => <Image src={creditArrowIcon} height={12} width={12} alt='Crédito' title='Crédito'/>,
-	debit: () => <Image src={debitArrowIcon} height={12} width={12} alt='Débito' title='Débito'/>
+	credit: <Image src={creditArrowIcon} height={12} width={12} alt='Crédito' title='Crédito'/>,
+	debit: <Image src={debitArrowIcon} height={12} width={12} alt='Débito' title='Débito'/>
 }
 
 export default function TransactionCard({ transaction }: iTransactionListProps) {
@@ -26,11 +26,7 @@ export default function TransactionCard({ transaction }: iTransactionListProps) 
 						type === 'debit' && 'bg-secondary-light'
 					)}
 				>
-					{
-						type === 'credit'
-							? <ArrowIcon.credit/>
-							: <ArrowIcon.debit/>
-					}
+					{ArrowIcon[type]}
 				</figure>
 
 				<div className='flex flex-col gap-[0.125rem] max-w-full'>
