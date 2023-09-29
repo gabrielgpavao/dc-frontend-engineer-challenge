@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useState } from 'react'
+import { ReactNode, createContext, useMemo, useState } from 'react'
 import { iUserProviderValue } from './interfaces'
 import { userMock } from '@/mocks/user'
 import { tTransaction, tUser } from '@/interfaces'
@@ -21,23 +21,25 @@ export function UserProvider({ children }: { children: ReactNode }) {
 		setSelectedDate(date)
 	}
 
+	const values = useMemo(() => ({
+		user,
+		setUser,
+		transactions,
+		setTransactions,
+		todaysDate,
+		isDateSelected,
+		selectedDate,
+		setIsDateSelected,
+		selectDate,
+		currentMonth,
+		setCurrentMonth,
+		currentYear,
+		setCurrentYear
+	}), [selectedDate, isDateSelected, currentMonth, currentYear])
+
 	return (
 		<UserContext.Provider
-			value={{
-				user,
-				setUser,
-				transactions,
-				setTransactions,
-				todaysDate,
-				isDateSelected,
-				selectedDate,
-				setIsDateSelected,
-				selectDate,
-				currentMonth,
-				setCurrentMonth,
-				currentYear,
-				setCurrentYear
-			}}
+			value={values}
 		>
 			{children}
 		</UserContext.Provider>

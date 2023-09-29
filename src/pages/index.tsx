@@ -3,17 +3,17 @@ import useUser from '@/hooks/useUser'
 import { tTransaction } from '@/interfaces'
 import { format } from 'date-fns'
 
+function filterTransactionsByDate(transactions: tTransaction[], date: Date): tTransaction[] {
+	return transactions.filter(({ createdAt }) => {
+		const transactionDay = format(createdAt, 'd')
+		const transactionDateDay = format(date, 'd')
+
+		return transactionDay === transactionDateDay
+	})
+}
+
 export default function Home() {
 	const { user, transactions, isDateSelected, selectedDate } = useUser()
-
-	function filterTransactionsByDate(transactions: tTransaction[], date: Date): tTransaction[] {
-		return transactions.filter(({ createdAt }) => {
-			const transactionDay = format(createdAt, 'd')
-			const transactionDateDay = format(date, 'd')
-
-			return transactionDay === transactionDateDay
-		})
-	}
 
 	return (
 		<>
