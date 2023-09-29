@@ -36,7 +36,7 @@ export default function TransactionCard({ transaction }: iTransactionListProps) 
 				<div className='flex flex-col gap-[0.125rem] max-w-full'>
 					<h3 className='text-xs font-medium text-[#0F4D64] truncate'>{title}</h3>
 
-					<small className='text-xs text-neutral capitalize'>{category}</small>
+					<small className='text-[0.625rem] text-neutral capitalize'>{category}</small>
 				</div>
 			</div>
 
