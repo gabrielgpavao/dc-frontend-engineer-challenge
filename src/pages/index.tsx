@@ -5,8 +5,8 @@ import { format } from 'date-fns'
 
 function filterTransactionsByDate(transactions: tTransaction[], date: Date): tTransaction[] {
 	return transactions.filter(({ createdAt }) => {
-		const transactionDay = format(createdAt, 'd')
-		const transactionDateDay = format(date, 'd')
+		const transactionDay = format(createdAt, 'd-M-yyyy')
+		const transactionDateDay = format(date, 'd-M-yyyy')
 
 		return transactionDay === transactionDateDay
 	})
