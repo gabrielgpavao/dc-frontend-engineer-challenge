@@ -4,7 +4,6 @@ import {
 	endOfMonth,
 	endOfWeek,
 	format,
-	getDay,
 	isEqual,
 	isSameDay,
 	parse,
@@ -74,16 +73,6 @@ export default function DatePicker() {
 		date
 	}))
 
-	const colStartClasses = [
-		'',
-		'col-start-2',
-		'col-start-3',
-		'col-start-4',
-		'col-start-5',
-		'col-start-6',
-		'col-start-7'
-	]
-
 	const datePickerRef = useCloseOnOutClick<HTMLDivElement>(() => { setIsDateSelected(false) })
 
 	return (
@@ -96,19 +85,26 @@ export default function DatePicker() {
 				))}
 			</ul>
 
-			<div ref={datePickerRef} className={`grid grid-cols-7 text-sm ${days.length > 7*5 ? 'h-72' : 'h-60'}`}>
+			<div
+				ref={datePickerRef}
+				className={cx(
+					'grid grid-cols-7 text-sm h-60',
+					days.length === 7*6 && 'h-72'
+				)}
+			>
 				{days.map((day, index) => (
 					<div
 						key={index}
-						className={cx(
-							index === 0 && colStartClasses[getDay(day.date)],
-							'grid place-items-center'
-						)}
+						className='grid place-items-center'
 					>
 						<button
 							type='button'
 							onClick={() => selectDate(day.date)}
-							className={`text-neutral-dark h-[1.875rem] w-[1.875rem] flex  flex-col items-center hover:font-semibold ${isEqual(day.date, todaysDate) && 'relative before:absolute before:-z-10 before:bottom-[0.3125rem] before:bg-primary before:min-h-[1.875rem] before:w-[1.875rem] before:rounded-full text-white font-medium'} ${(isEqual(day.date, selectedDate) && (!isEqual(day.date, todaysDate)) && isDateSelected) && 'border border-primary rounded-lg'}`}
+							className={cx(
+								'text-neutral-dark h-[1.875rem] w-[1.875rem] flex flex-col items-center hover:font-semibold',
+								isEqual(day.date, todaysDate) && 'text-white font-medium relative before:absolute before:-z-10 before:bottom-[0.3125rem] before:bg-primary before:min-h-[1.875rem] before:w-[1.875rem] before:rounded-full',
+								(isEqual(day.date, selectedDate) && (!isEqual(day.date, todaysDate)) && isDateSelected) && 'border border-primary rounded-lg'
+							)}
 						>
 							{format(day.date, 'd')}
 
