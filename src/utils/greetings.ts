@@ -1,19 +1,25 @@
-export default function greetings(): string {
-	const currentDate = new Date()
-	const time = currentDate.getHours()
-	let greeting: string
+import { getHours } from 'date-fns'
 
-	switch (true) {
-	case time >= 6 && time < 12:
-		greeting = 'Bom dia'
-		break
-	case time >= 12 && time < 18:
-		greeting = 'Boa tarde'
-		break
-	default:
-		greeting = 'Boa noite'
-		break
+enum Greeting {
+	MORNING = 'Bom dia',
+	AFTERNOON = 'Bom tarde',
+	EVENING = 'Bom noite'
+}
+
+const MORNING_START_HOUR = 6
+const AFTERNOON_START_HOUR = 12
+const EVENING_START_HOUR = 18
+
+export default function greetings(): string {
+	const time = getHours(new Date())
+
+	if (time >= MORNING_START_HOUR && time < AFTERNOON_START_HOUR) {
+		return Greeting.MORNING
 	}
 
-	return greeting
+	if (time >= AFTERNOON_START_HOUR && time < EVENING_START_HOUR) {
+		return Greeting.AFTERNOON
+	}
+
+	return Greeting.EVENING
 }
