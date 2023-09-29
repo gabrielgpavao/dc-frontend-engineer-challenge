@@ -1,7 +1,6 @@
 export type tUser = {
 	id: string
-	firstName: string
-	lastName: string
+	name: string
 	email: string
 	avatarURL: string
 	company: string
