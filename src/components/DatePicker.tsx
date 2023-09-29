@@ -21,6 +21,32 @@ interface iTransactionIndicatorProps {
 	date: Date
 }
 
+function TransactionIndicator({ transactions, date }: iTransactionIndicatorProps) {
+	const transactionsByDate = transactions.filter((transaction) => isSameDay(transaction.createdAt, date))
+
+	if (!transactionsByDate.length) {
+		return
+	}
+
+	const creditTransactions = transactionsByDate.some((transaction) => transaction.type === 'credit')
+	const debitTransactions = transactionsByDate.some((transaction) => transaction.type === 'debit')
+
+	if (!(creditTransactions && debitTransactions)) {
+		return (
+			<div className='flex gap-[0.1875rem] '>
+				<BulletPoint transactionType={transactionsByDate[0].type}/>
+			</div>
+		)
+	}
+
+	return (
+		<div className='flex gap-[0.1875rem]'>
+			<BulletPoint transactionType='credit'/>
+			<BulletPoint transactionType='debit'/>
+		</div>
+	)
+}
+
 export default function DatePicker() {
 	const {
 		transactions,
@@ -57,32 +83,6 @@ export default function DatePicker() {
 		'col-start-6',
 		'col-start-7'
 	]
-
-	function TransactionIndicator({ transactions, date }: iTransactionIndicatorProps) {
-		const transactionsByDate = transactions.filter((transaction) => isSameDay(transaction.createdAt, date))
-
-		if (!transactionsByDate.length) {
-			return
-		}
-
-		const creditTransactions = transactionsByDate.some((transaction) => transaction.type === 'credit')
-		const debitTransactions = transactionsByDate.some((transaction) => transaction.type === 'debit')
-
-		if (!(creditTransactions && debitTransactions)) {
-			return (
-				<div className='flex gap-[0.1875rem] '>
-					<BulletPoint transactionType={transactionsByDate[0].type}/>
-				</div>
-			)
-		}
-
-		return (
-			<div className='flex gap-[0.1875rem]'>
-				<BulletPoint transactionType='credit'/>
-				<BulletPoint transactionType='debit'/>
-			</div>
-		)
-	}
 
 	const datePickerRef = useCloseOnOutClick<HTMLDivElement>(() => { setIsDateSelected(false) })
 

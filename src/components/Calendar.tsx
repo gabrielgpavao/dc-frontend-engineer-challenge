@@ -10,16 +10,16 @@ interface iFilterOptionProps {
 	isActive?: boolean
 }
 
+function FilterOption({ filterName, isActive }: iFilterOptionProps) {
+	return (
+		<li className={`text-sm font-medium rounded-[0.1875rem] cursor-pointer h-full px-3 grid place-items-center ${isActive ? 'bg-primary-light text-primary' : 'bg-[#9C9EA01F] text-neutral-dark'}`}>
+			{filterName}
+		</li>
+	)
+}
+
 export default function Calendar() {
 	const { setCurrentMonth, setCurrentYear, todaysDate } = useUser()
-
-	function FilterOption({ filterName, isActive }: iFilterOptionProps) {
-		return (
-			<li className={`text-sm font-medium rounded-[0.1875rem] cursor-pointer h-full px-3 grid place-items-center ${isActive ? 'bg-primary-light text-primary' : 'bg-[#9C9EA01F] text-neutral-dark'}`}>
-				{filterName}
-			</li>
-		)
-	}
 
 	const months = getMonthsOfTheYear()
 	const monthSelectOptions: { value: number; label: string }[] = months.map((month, index) => ({
