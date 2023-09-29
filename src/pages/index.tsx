@@ -20,7 +20,7 @@ export default function Home() {
 			<Header/>
 			<div className='md:flex md:flex-row-reverse md:justify-end'>
 				<main className='w-full pt-[1.875rem] px-5 md:px-[1.875rem] relative'>
-					<Profile name={`${user.firstName} ${user.lastName}`} avatarURL={user.avatarURL} company={user.company}/>
+					<Profile name={user.name} avatarURL={user.avatarURL} company={user.company}/>
 					<div className='mt-10 mb-14 md:mb-0 md:mt-[3.125rem] md:flex'>
 						<Calendar/>
 						{

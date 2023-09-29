@@ -3,10 +3,9 @@ import { v4 as uuidv4 } from 'uuid'
 
 export const userMock: tUser = {
 	id: uuidv4(),
-	firstName: 'Gabriel',
-	lastName: 'Pavão',
-	email: 'gabriel@mail.com',
-	avatarURL: 'https://i.imgur.com/2TBmfPW.jpg',
+	name: 'Luiz Antônio Neto',
+	email: 'luiz@mail.com',
+	avatarURL: 'https://avatars.githubusercontent.com/u/61487887?v=4',
 	company: 'Delta Code Ltda',
-	createdAt: new Date('2023-09-26T10:53:35.753Z')
+	createdAt: new Date('2023-09-26T10:00:0Z')
 }
