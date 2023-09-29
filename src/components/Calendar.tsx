@@ -4,6 +4,7 @@ import DatePicker from './DatePicker'
 import useUser from '@/hooks/useUser'
 import { format, getYear } from 'date-fns'
 import getMonthsOfTheYear from '@/utils/getMonthsOfTheYear'
+import cx from 'classnames'
 
 interface iFilterOptionProps {
 	filterName: string
@@ -12,7 +13,12 @@ interface iFilterOptionProps {
 
 function FilterOption({ filterName, isActive }: iFilterOptionProps) {
 	return (
-		<li className={`text-sm font-medium rounded-[0.1875rem] cursor-pointer h-full px-3 grid place-items-center ${isActive ? 'bg-primary-light text-primary' : 'bg-[#9C9EA01F] text-neutral-dark'}`}>
+		<li
+			className={cx(
+				'bg-[#9C9EA01F] text-neutral-dark text-sm font-medium rounded-[0.1875rem] cursor-pointer h-full px-3 grid place-items-center',
+				isActive && 'bg-primary-light text-primary'
+			)}
+		>
 			{filterName}
 		</li>
 	)
