@@ -19,9 +19,9 @@ export default function Home() {
 		<>
 			<Header/>
 			<div className='md:flex md:flex-row-reverse md:justify-end'>
-				<main className='container px-4 relative'>
+				<main className='w-full pt-[1.875rem] px-5 md:px-[1.875rem] relative'>
 					<Profile name={`${user.firstName} ${user.lastName}`} avatarURL={user.avatarURL} company={user.company}/>
-					<div className='md:flex'>
+					<div className='mt-10 mb-14 md:mb-0 md:mt-[3.125rem] md:flex'>
 						<Calendar/>
 						{
 							isDateSelected
@@ -29,7 +29,7 @@ export default function Home() {
 								: <CalendarLabel/>
 						}
 					</div>
-					<footer className='hidden absolute bottom-3 md:block'>
+					<footer className='hidden absolute bottom-[1.8125rem] md:block'>
 						<p className='text-sm font-medium text-neutral-dark'>Desenvolvido por <strong className='font-bold'>Delta Code LTDA®</strong> 2023</p>
 					</footer>
 				</main>

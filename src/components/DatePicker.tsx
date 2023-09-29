@@ -77,7 +77,7 @@ export default function DatePicker() {
 
 	return (
 		<div className='w-full'>
-			<ul className='grid grid-cols-7 mb-5 text-sm font-medium text-center text-black place-items-center'>
+			<ul className='grid grid-cols-7 mb-3 text-sm font-medium text-center text-black place-items-center'>
 				{['D', 'S', 'T', 'Q', 'Q', 'S', 'S'].map((char, index) => (
 					<li key={index} className='h-[1.875rem] w-[1.875rem] bg-[#9C9EA01F] rounded-full grid place-items-center transition'>
 						{char}

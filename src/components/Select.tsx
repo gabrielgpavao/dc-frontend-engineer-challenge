@@ -14,12 +14,20 @@ interface iSelectProps {
 
 export default function Select({ icon, name, options, onChange, defaultValue }: iSelectProps) {
 	return (
-		<fieldset className='flex relative w-full'>
-			<Image src={icon} alt='Ícone do campo de seleção' className='absolute top-3 left-[0.625rem]'/>
+		<fieldset className='flex relative w-full h-[2.625rem]'>
+			<Image src={icon} alt='Ícone do campo de seleção' width={24} height={14} className='absolute top-[0.7813rem] left-3'/>
 
-			<select onChange={onChange} name={name} id={name} defaultValue={defaultValue} className='border border-[#9C9EA059] text-sm font-bold capitalize outline-none text-black rounded-[0.1875rem] appearance-none w-full h-10 pl-10'>
+			<select
+				onChange={onChange}
+				name={name}
+				id={name}
+				defaultValue={defaultValue}
+				className='border border-[#9C9EA059] text-sm font-bold capitalize outline-none text-black rounded-[0.1875rem] appearance-none w-full h-full pl-[2.9375rem]'
+			>
 				{
-					options.map(({ value, label }) => <option key={value} value={value}>{label}</option>)
+					options.map(({ value, label }) => (
+						<option key={value} value={value}>{label}</option>
+					))
 				}
 			</select>
 

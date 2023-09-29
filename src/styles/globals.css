@@ -6,13 +6,14 @@
 @media (min-width: 768px) {
 	.navbarMd {
 		background-color: #007D66;
-		padding: 1.5rem;
-		max-height: 62.5rem;
-		width: 80px;
+		padding: 1.5rem 0.75rem;
+		height: 59.3125rem;
+		width: 5rem;
 	}
 
 	.ulNavbarMd {
 		flex-direction: column;
-		gap: 2.5rem;
+		max-height: 13.75rem;
+		gap: 1.25rem;
 	}
 }
