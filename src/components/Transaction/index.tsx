@@ -13,7 +13,7 @@ export default function Transaction({ date, transactions }: iTransactionProps) {
 	const transactionDate = format(date, 'dd/MM/yyyy')
 
 	return (
-		<section className='mb-5'>
+		<section>
 			<div className='flex items-center gap-2 mb-[1.125rem]'>
 				<figure className='h-[1.125rem] w-4'>
 					<Image src={calendarNextIcon} alt='Movimentações do Dia' height={16} width={16} className='max-h-full max-w-full'/>
